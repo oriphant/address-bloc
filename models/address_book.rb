@@ -14,10 +14,12 @@ class AddressBook
             if name<entry.name
                 break
             end
-        index +=1
+                index +=1
+            end
+        @entries.insert(index, Entry.new(name, phone,email))
     end
 
-    @entries.insert(index, Entry.new(name, phone,email))
+    def remove_entry(entry)
+        @entries.delete(entry)
     end
-
 end
