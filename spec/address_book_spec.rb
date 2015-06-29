@@ -102,8 +102,8 @@ let(:book) {AddressBook.new}
         
         it "imports the 1st entry" do
             book.import_from_csv("entries_2.csv")
-            entry_one = book.entries[2]
-            check_entry(entry_one, "Robert", "555-555-1234", "rob@blocmail.com")
+            entry_one = book.entries[0]
+            check_entry(entry_one, "Dick", "555-555-3456", "dick@blocmail.com")
         end
         
         it "imports the 2nd entry" do
@@ -114,8 +114,8 @@ let(:book) {AddressBook.new}
         
         it "imports the 3rd entry" do
             book.import_from_csv("entries_2.csv")
-            entry_three = book.entries[0]
-            check_entry(entry_three, "Dick", "555-555-3456", "dick@blocmail.com")
+            entry_three = book.entries[2]
+            check_entry(entry_three, "Robert", "555-555-1234", "rob@blocmail.com")
         end
         #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     end
