@@ -11,11 +11,12 @@ attr_accessor :address_book
         puts "Main Menu - #{@address_book.entries.count} Entries"
         puts "\n"
         puts "1 - View all entries"
-        puts "2 - View Entry Number n"
+        puts "2 - View entry number n"
         puts "3 - Create an entry"
         puts "4 - Search for an entry"
         puts "5 - Import entries from a CSV"
-        puts "6 - Exit"
+        puts "6 - Smoke all entries"
+        puts "7 - Exit"
         puts "\n"
         print "Enter your selection: "
 
@@ -43,6 +44,12 @@ attr_accessor :address_book
             read_csv
             main_menu
         when 6
+# ~~~~~ CP25-Assignment ~~~~~~~~~
+            system "clear"
+            delete_all
+            main_menu
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        when 7
             puts "Good-bye!"
             exit(0)
         else
@@ -215,5 +222,22 @@ attr_accessor :address_book
         puts "#{file_name} is not a valid CSV file, please enter the name of a valid CSV file"
       end
     end
-    
+
+# ~~~~~ Entry 6 - Delete all Contracts ~~~~~~~~~
+# ~~~~~ CP25-Assignment ~~~~~~~~~
+    def delete_all
+      puts "Are you sure you want to delete all - y/n"
+      smokeit = gets.chomp
+      if smokeit == "y"
+        @address_book = [] #Is this the right way to delete all contacts.  Tried using @address_book.clear but did not work.
+        main_menu
+      elsif smokeit =="n"
+        puts "Okay.  Nothing deleted, back to main menu"
+        main_menu
+      else
+        puts "Not a valid entry - re-enter y/n"
+        puts "\n"
+        delete_all
+      end
+    end
 end
