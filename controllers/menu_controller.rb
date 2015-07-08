@@ -229,7 +229,7 @@ attr_accessor :address_book
       puts "Are you sure you want to delete all - y/n"
       smokeit = gets.chomp
       if smokeit == "y"
-        @address_book = [] #Is this the right way to delete all contacts.  Tried using @address_book.clear but did not work.
+        @address_book.entries.clear #Is this the right way to delete all contacts.  Tried using @address_book.clear but did not work.
         main_menu
       elsif smokeit =="n"
         puts "Okay.  Nothing deleted, back to main menu"
